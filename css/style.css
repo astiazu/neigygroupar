@@ -61,24 +61,24 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 h1 {
-    font-size: 54px;
+    font-size: 40px;
 }
 
 h2 {
-    font-size: 36px;
+    font-size: 26px;
 }
 
 h3 {
-    font-size: 21px;
+    font-size: 16px;
     color: #00c3ff;
 }
 
 h4 {
-    font-size: 18px;
+    font-size: 14px;
 }
 
 h5 {
-    font-size: 16px;
+    font-size: 12px;
 }
 
 
@@ -1893,7 +1893,7 @@ header {
 /*marquesina */
 .marquee {
     background-color: #1C1D21;
-    margin-left: 300px;
+    margin-left: 280px;
     padding: 50px;
     width: 50%;
     height: 540px;
