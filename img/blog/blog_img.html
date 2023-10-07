@@ -1,0 +1,88 @@
+<!-- imagen.html -->
+<!-- <!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Visualización de Imágenes</title>
+</head>
+<body>
+    <h1>Visualización de Imágenes</h1>
+    <img id="imagen" src="" alt="Imagen">
+
+    <script>
+        // Recuperar el parámetro de consulta "imagen" de la URL
+        const urlParams = new URLSearchParams(window.location.search);
+        const imagenParam = urlParams.get('imagen');
+        
+        // Actualizar la fuente de la imagen con el valor del parámetro
+        if (imagenParam) {
+            const imagen = document.getElementById('imagen');
+            imagen.src = imagenParam;
+        }
+    </script>
+</body>
+</html> -->
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Visualización de Imágenes</title>
+    <style>
+        /* Estilos para centrar y recuadrar la imagen */
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        img#imagen {
+            border: 2px solid #000;
+            padding: 10px;
+            /*max-width: 100%;
+            max-height: 100%;*/
+            width: 600px;
+            height: 600px;
+        }
+
+        /* Estilos para el botón de volver */
+        button#volver {
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <h1>Visualización de Imágenes</h1>
+    <img id="imagen" src="" class="img-thumbnail" alt="Imagen">
+
+    <button id="volver">Volver a la página anterior</button>
+
+    <script>
+        // Recuperar el parámetro de consulta "imagen" de la URL
+        const urlParams = new URLSearchParams(window.location.search);
+        const imagenParam = urlParams.get('imagen');
+        
+        // Actualizar la fuente de la imagen con el valor del parámetro
+        if (imagenParam) {
+            const imagen = document.getElementById('imagen');
+            imagen.src = imagenParam;
+        }
+
+        // Agregar evento al botón para volver a la página anterior
+        const volverBoton = document.getElementById('volver');
+        volverBoton.addEventListener('click', () => {
+            history.back(); // Esta función permite volver a la página anterior
+        });
+    </script>
+</body>
+</html>

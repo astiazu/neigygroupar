@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+
+	<title>Neigy'Group - Empresa de Seguridad</title>
+
+	<meta name="description"
+		content="Sistemas de Seguridad y Video Vigilancia para comercios, empresas y casas de Familia. Porque la Seguridad es tan importante para ustedes como para nuetra empresa.">
+
+	<!-- Google font -->
+	<link href="https://fonts.googleapis.com/css?family=Montserrat:400,700%7CVarela+Round" rel="stylesheet">
+
+	<!-- Bootstrap -->
+	<link type="text/css" rel="stylesheet" href="/css/bootstrap.min.css" />
+
+	<!-- Owl Carousel -->
+	<link type="text/css" rel="stylesheet" href="/css/owl.carousel.css" />
+	<link type="text/css" rel="stylesheet" href="/css/owl.theme.default.css" />
+
+	<!-- Magnific Popup -->
+	<link type="text/css" rel="stylesheet" href="/css/magnific-popup.css" />
+
+	<!-- Font Awesome Icon -->
+	<link rel="stylesheet" href="/css/font-awesome.min.css">
+
+	<!-- Custom stlylesheet -->
+	<link type="text/css" rel="stylesheet" href="/css/style.css" />
+
+	<style>
+        /* Estilo para mantener la proporción de la imagen */
+        .container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100%;
+        }
+
+        .container img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+        }
+    </style>
+
+</head>
+
+<body>
+	<!-- Header -->
+	<header id="home">
+		<!-- Background Image -->
+		<div class="bg-img" style="background-image: url('img/bg.jpg');">
+			<div class="overlay"></div>
+		</div>
+		<!-- /Background Image -->
+
+		<!-- Nav -->
+		<nav id="nav" class="navbar nav-transparent">
+			<div class="container">
+				<div class="navbar-header">
+					<!-- Logo -->
+					<div class="navbar-brand">
+						<a href="/index.html">
+							<img class="logo" src="/img/logo-nuevo.png" alt="logo">
+							<img class="logo-alt" src="/img/logo-nuevo.png" alt="logo">
+						</a>
+					</div>
+					<!-- /Logo -->
+
+					<!-- Collapse nav button -->
+					<div class="nav-collapse">
+						<span></span>
+					</div>
+					<!-- /Collapse nav button -->
+				</div>
+
+				<!--  Main navigation  -->
+				<ul class="main-nav nav navbar-nav navbar-right">
+					<li><a href="/index.html">Inicio</a></li>
+					<li class="has-dropdown"><a href="#blog">Seguridad Ciudadana</a>
+						<ul class="dropdown">
+							<li><a href="/generic.html">Gob. Nac./Prov./Mun.(1)</a></li>
+							<li><a href="/blog-capicop.html">Sistema Capicop.(1)</a></li>
+							<li><a href="/generic.html">Nuevo Paradigma Sobre Enonomías Regionales.(1)</a></li>
+
+						</ul>
+					</li>
+					<li class="has-dropdown"><a href="#blog">Gestión y Desarrollo</a>
+						<ul class="dropdown">
+							<li><a href="/generic.html">Reunión Lejislatura Provincial</a></li>
+							<li><a href="/generic.html">Desarrollo de Aplicaciones</a></li>
+							<!-- <li><a href="#">Gestion 3</a></li> -->
+						</ul>
+					</li>
+					<li class="has-dropdown"><a href="#blog">Soft / App / Electrónica</a>
+						<ul class="dropdown">
+							<li><a href="/blog-residuos.html">Solución para el Reciclado de Residuos Urbanos.(1)</a>
+							</li>
+							<li><a href="/blog-naranjitas.html">Solución Estacionamiento - Naranjitas/Trapitos -(1)</a>
+							</li>
+							<li><a href="/generic.html">7G. Medios de transmisión Laser.(1)</a></li>
+							<li><a href="/generic.html">Sistema Jubilados / Antihackers</a></li>
+							<li><a href="/generic.html">Ley de Conducción de Motovehículos.(1)</a></li>
+							<li><a href="/generic.html">Rutas de productos regionales.(1)</a></li>
+						</ul>
+					</li>
+					<li><a href="#contact">Contact</a></li>
+				</ul>
+				<!-- /Main navigation -->
+			</div>
+		</nav>
+		<!-- /Nav -->
+		<!-- home wrapper -->
+		<!-- <div class="home-wrapper"> -->
+			<div class="container">
+				<div class="row">
+					<!-- Columna del texto -->
+					<div class="col-md-6">
+						<h2>Descripción de la Imagen</h2>
+
+						<p id="textoImagen">Texto de descripción de la imagen va aquí.</p>
+
+						<button id="volver" class="btn btn-primary">Volver a la página anterior</button>
+					</div>
+					<!-- Columna de la imagen -->
+					<div class="col-md-6">
+						<img id="imagen" src="" class="img-fluid" alt="Imagen">
+					</div>
+				</div>
+			</div>
+
+			<script>
+				// Recuperar el parámetro de consulta "imagen" de la URL
+				const urlParams = new URLSearchParams(window.location.search);
+				const imagenParam = urlParams.get('imagen');
+				const textoParam = urlParams.get('texto');
+
+				// Actualizar la fuente de la imagen con el valor del parámetro
+				if (imagenParam) {
+					const imagen = document.getElementById('imagen');
+					imagen.src = imagenParam;
+				}
+        
+				// Actualizar el texto de la descripción con el valor del parámetro
+        		if (textoParam) {
+            		const textoImagen = document.getElementById('textoImagen');
+		            textoImagen.textContent = textoParam;
+        		}
+
+				// Agregar evento al botón para volver a la página anterior
+				const volverBoton = document.getElementById('volver');
+				volverBoton.addEventListener('click', () => {
+					history.back(); // Esta función permite volver a la página anterior
+				});
+			</script>
+		<!-- </div> -->
+	</header>
+	<!-- Agregamos la librería de jQuery y los scripts de Bootstrap -->
+	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+
+</html>
