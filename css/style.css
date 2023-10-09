@@ -1935,3 +1935,29 @@ header {
     border: 2px solid #007bff; /* Cambia el color y el grosor del borde según tus preferencias */
     transition: border 0.3s ease; /* Agrega una transición suave para el cambio de borde */
   }
+
+ /* Contador de visitas */ 
+  .stat {
+	padding:20px 5px;
+	background:#336699;
+	text-align:center;
+	float:left;
+	margin-left:100px;
+	width:150px;
+}
+.stat-count {
+	font-size: 24px;
+	font-weight: normal;
+	letter-spacing: -0.02em;
+	line-height: 1.2;
+	margin-bottom: 20px;
+	overflow:hidden;
+	font-family:"Georgia", Courier, monospace;
+	padding: 0;
+	position: relative;
+}
+.stat-detail {
+	color:#fff;
+	padding-top:10px;
+	font: italic 1.3rem/1.75 "Georgia", Courier, monospace;
+}
