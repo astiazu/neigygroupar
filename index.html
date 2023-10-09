@@ -674,40 +674,53 @@
 			</div>
 			<!-- /Row -->
 			<div class="contador">
+  
+				<!-- Icono del ojo con función de alternar visibilidad -->
 				<i id="iconoOjo" class="fa fa-eye" style="cursor: pointer;"></i>
-				<p id="mensajeVisitas">0 veces visitada.</p>
+				
+				<!-- Contador de visitas oculto por defecto -->
+				<p id="contador" style="display: none;"><span>0</span> visitas.</p>
+			
 				<script>
-					// Verificar si el contador existe en el almacenamiento local
-					if (localStorage.getItem('visitas')) {
-						// Si existe, obtener el valor actual del contador
-						var contadorActual = parseInt(localStorage.getItem('visitas'));
-					} else {
-						// Si no existe, iniciar el contador en 0
-						var contadorActual = 0;
-					}
+					const contadorElemento = document.getElementById('contador');
+					const iconoOjo = document.getElementById('iconoOjo');
+					let contadorVisible = false; // Variable para rastrear la visibilidad del contador
 			
 					// Función para mostrar u ocultar el contador
 					function toggleContador() {
-						var mensajeVisitas = document.getElementById('mensajeVisitas');
-						var iconoOjo = document.getElementById('iconoOjo');
-			
-						if (mensajeVisitas.style.display === 'none') {
-							mensajeVisitas.style.display = 'block';
-							iconoOjo.classList.add('fa fa-eye');
-							iconoOjo.classList.remove('fa fa-eye-slash');
+						if (contadorVisible) {
+							contadorElemento.style.display = 'none';
+							contadorVisible = false;
+							iconoOjo.classList.remove('fa-eye-slash');
 						} else {
-							mensajeVisitas.style.display = 'none';
-							iconoOjo.classList.remove('fa fa-eye');
-							iconoOjo.classList.add('fa fa-eye-slash');
+							contadorElemento.style.display = 'block';
+							contadorVisible = true;
+							iconoOjo.classList.add('fa-eye-slash');
 						}
 					}
 			
-					// Mostrar el contador en la página
-					document.getElementById('mensajeVisitas').textContent = contadorActual;
-			
-					// Agregar un evento de clic al icono de ojo
-					var iconoOjo = document.getElementById('iconoOjo');
+					// Agregar un evento de clic al icono de ojo para alternar la visibilidad
 					iconoOjo.addEventListener('click', toggleContador);
+			
+					// Verificar si el contador existe en el almacenamiento local
+					if (localStorage.getItem('visitas')) {
+						var contadorActual = parseInt(localStorage.getItem('visitas'));
+					} else {
+						var contadorActual = 0;
+					}
+			
+					// Incrementar el contador en 1 cada vez que la página se carga
+					contadorActual++;
+			
+					// Mostrar el contador en la página si es visible
+					if (contadorVisible) {
+						contadorElemento.style.display = 'block';
+					}
+			
+					contadorElemento.querySelector('span').textContent = contadorActual;
+			
+					// Guardar el valor actual del contador en el almacenamiento local
+					localStorage.setItem('visitas', contadorActual.toString());
 				</script>
 			</div>
 		</div>
