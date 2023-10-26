@@ -1961,3 +1961,11 @@ header {
 	padding-top:10px;
 	font: italic 1.3rem/1.75 "Georgia", Courier, monospace;
 }
+
+.video-container {
+    width: 320px;
+    height: 420px;
+    border: 1px solid #05bef7; /* Estilo del marco */
+    padding: 10px; /* Espaciado interno para dar margen al contenido */
+    margin: 20px; /* Espaciado externo para separar del contenido circundante */
+}
