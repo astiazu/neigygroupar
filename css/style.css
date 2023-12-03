@@ -1246,6 +1246,17 @@ header {
 .blog-author img {
     height: 30px;
 }
+
+/* -- blog autor nuevo -- */
+.blog-author-nuevo {
+
+    max-width: 600px; /* Ancho máximo del contenedor */
+    margin-left: 150px;
+    padding: 20px; /* Ajusta el espacio interno según sea necesario */
+    text-align: center;
+    border: 1px solid #ccc; /* Borde para visualización */
+}
+
 /* -- blog comments -- */
 
 .blog-comments {
