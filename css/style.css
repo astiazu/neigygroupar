@@ -1252,7 +1252,7 @@ header {
 /* -- blog autor nuevo -- */
 .blog-author-nuevo {
 
-    max-width: 540px; /* Ancho máximo del contenedor */
+    max-width: 360px; /* Ancho máximo del contenedor */
     margin-left: 0px auto;
     padding: 20px; /* Ajusta el espacio interno según sea necesario */
     text-align: center;
@@ -1584,7 +1584,14 @@ header {
       float: none;
       text-align: center;
   }
-   
+  
+  .contenedor-capicop {
+    width: 700px;
+    height: 1150px;
+    border: 1px solid #05bef7; /* Estilo del marco */
+    padding: 10px; /* Espaciado interno para dar margen al contenido */
+    margin: 0px; /* Espaciado externo para separar del contenido circundante */
+  }
 }
 
 @media screen and (max-width: 480px) {
@@ -1988,4 +1995,12 @@ header {
     border: 1px solid #05bef7; /* Estilo del marco */
     padding: 10px; /* Espaciado interno para dar margen al contenido */
     margin: 20px; /* Espaciado externo para separar del contenido circundante */
+}
+
+.contenedor-capicop {
+    width: 860px;
+    height: 1150px;
+    border: 1px solid #05bef7; /* Estilo del marco */
+    padding: 10px; /* Espaciado interno para dar margen al contenido */
+    margin: 0px; /* Espaciado externo para separar del contenido circundante */
 }
