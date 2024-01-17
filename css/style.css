@@ -1997,10 +1997,81 @@ header {
     margin: 20px; /* Espaciado externo para separar del contenido circundante */
 }
 
+/* Estilos del contenedor principal */
 .contenedor-capicop {
     width: 860px;
-    height: 1150px;
-    border: 1px solid #05bef7; /* Estilo del marco */
-    padding: 10px; /* Espaciado interno para dar margen al contenido */
-    margin: 0px; /* Espaciado externo para separar del contenido circundante */
+    height: auto; /* Cambiado a 'auto' para ajustarse al contenido interno */
+    border: 1px solid #05bef7;
+    padding: 10px;
+    margin: 0; 
+    overflow: hidden; /* Para asegurar que el contenido interno no se desborde */
+}
+
+.container-img {
+    width: 400px;
+    height: auto; /* Cambiado a 'auto' para ajustarse al contenido interno */
+    border: 1px solid #05bef7;
+    padding: 10px;
+    margin: 0; 
+}
+/* Estilos para las imágenes */
+.img-responsive {
+    max-width: 100%; /* Permitir que las imágenes se ajusten al ancho del contenedor */
+    height: auto; /* Ajustar la altura automáticamente según el ancho */
+}
+
+/* Estilos para los contenedores individuales de imágenes */
+.image-container {
+    width: 100px;
+    height: 85px;
+    overflow: hidden; /* Ocultar cualquier contenido que se desborde */
+    float: left; /* Colocar las imágenes en línea */
+    margin: 5px; /* Agregar margen entre las imágenes */
+    position: relative;
+}
+
+/* Estilos para el texto superpuesto en las imágenes */
+.image-container p {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    color: white;
+    text-align: center;
+    margin: 0;
+    padding: 5px;
+}
+  
+.zoom-effect:hover {
+    transform: scale(2); /* Aplica un efecto de zoom al posicionar el cursor sobre la imagen */
+}
+
+/* Estilos para el popup */
+.popup {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 9999;
+    background: rgba(0, 0, 0, 0.8);
+    padding: 20px;
+    text-align: center;
+}
+
+.popup img {
+    max-width: 90%;
+    max-height: 80%;
+    margin-top: 20px;
+}
+
+.cerrar {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    cursor: pointer;
+    color: #fff;
+    font-size: 28px;
+    font-weight: bold;
 }
