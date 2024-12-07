@@ -1,0 +1,5 @@
+{
+    "restructuredtext.languageServer.disabled": true,
+    "liveServer.settings.port": 5501,
+    "esbonio.server.enabled": false
+}

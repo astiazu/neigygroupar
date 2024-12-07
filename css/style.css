@@ -75,8 +75,8 @@ h3 {
 
 h4 {
     font-size: 14px;
+    color: #D3D3D3;
 }
-
 h5 {
     font-size: 12px;
 }
@@ -605,8 +605,8 @@ header {
 
 .home-content img.logo {
     position: relative;
-    width: 20%;
-    size: 1x;
+    width: 50%;
+    size: 1px;
 }
 
 .home-content h1 {

@@ -1,113 +1,101 @@
 <?php
-/**
-* @version 1.0
-*/
-
-//echo "ingresando al formulario",$POST["subscriber-mail"];
-
 require("class.phpmailer.php");
 require("class.smtp.php");
 
+// Imprimir las variables para verificar su contenido
+echo "<pre>";
+print_r($_POST);
+print($estadoEnvio);
+echo "</pre>";
 
-// Valores enviados desde el formulario
-if ( !isset($_POST["subscriber-mail"]) ) {
-    echo ("Es necesario completar todos los datos del formulario");
+
+// Verificar si el formulario se envió correctamente
+if (!isset($_POST["email"]) || !isset($_POST["name"]) || !isset($_POST["asunto"]) || !isset($_POST["mensaje"])) {
+    die("Es necesario completar todos los datos del formulario.");
 }
-   $name = $_POST["name"];
-   $email = $_POST["email"];
-   $asunto = $_POST["asunto"];
-   $mensaje = $_POST["mensaje"];
 
-   // Datos de la cuenta de correo utilizada para enviar vía SMTP
-   $smtpHost = "c2480282.ferozo.com";  // Dominio alternativo brindado en el email de alta 
-   $smtpUsuario = "osolo1966@gmail.com";  // Mi cuenta de correo
-   $smtpClave = "Clavero22";  // Mi contraseña
+$name = $_POST["name"];
+$email = $_POST["email"];
+$asunto = $_POST["asunto"];
+$mensaje = $_POST["mensaje"];
 
-   // Email donde se enviaran los datos cargados en el formulario de contacto
-   $emailDestino = "osolo1966@gmail.com"; #"info@c2480282.ferozo.com"; #"osolo1966@gmail.com";
+// Configuración SMTP
+$smtpHost = "smtp.hostinger.com"; //"c2480282.ferozo.com";
+$smtpUsuario = "info@neigygroup.org";
+$smtpClave = "Admin1234@";
+$emailDestino = "info@neigygroup.org";
 
-   $mail = new PHPMailer();
-   $mail->IsSMTP();
-   $mail->SMTPAuth = true;
-   $mail->Port = 465; 
-   $mail->SMTPSecure = 'ssl';
-   $mail->IsHTML(true); 
-   $mail->CharSet = "utf-8";
+$mail = new PHPMailer();
+$mail->IsSMTP();
+$mail->SMTPAuth = true;
+$mail->Port = 587; //465;
+$mail->SMTPSecure = 'TLS';
+$mail->IsHTML(true);
+$mail->CharSet = "utf-8";
 
+$mail->Host = $smtpHost;
+$mail->Username = $smtpUsuario;
+$mail->Password = $smtpClave;
 
-   // VALORES A MODIFICAR //
-   $mail->Host = $smtpHost; 
-   $mail->Username = $smtpUsuario; 
-   $mail->Password = $smtpClave;
+$mail->From = $email;
+$mail->FromName = $name;
+$mail->AddAddress($emailDestino);
 
-   $mail->From = $email; // Email desde donde envío el correo.
-   //$mail->FromName = $nombre;//
-   $mail->AddAddress($emailDestino); // Esta es la dirección a donde enviamos los datos del formulario
+$mail->Subject = "Solicitud de Suscripción";
+$mensajeHtml = nl2br($mensaje);
+$mail->Body = "{$mensajeHtml}<br><br>Solicitud de suscripción a las novedades de su página y empresa.<br>Enviado desde la página web.";
+$mail->AltBody = "{$mensaje}\n\nFormulario de ejemplo By DonWeb";
 
-   $mail->Subject = "Solicitud de Suscripción"; // Este es el titulo del email.
-   $mensajeHtml = nl2br($mensaje);   
-   $mail->Body = "{$mensajeHtml} <br /><br />Solicitud de suscripcion a las novedades de su pagina y Empresa \n\n Enviado desde la Página web.<br />"; // Texto del email en formato 
-   $mail->AltBody = "{$mensaje} \n\n Formulario de ejemplo By DonWeb"; // Texto sin formato HTML
-   // FIN - VALORES A MODIFICAR //
-
-   $estadoEnvio = $mail->Send(); 
-   if($estadoEnvio){
-      echo'<script type="text/javascript">
-        //alert("El correo fue enviado correctamente.");
-        msg="El correo fue enviado correctamente a :".$emailDestino; 
-        alert(("' . $msg . '"));
-        window.location.href="http://www.neigygroup.com";
-        </script>';
-        
-   } else {
-      echo'<script type="text/javascript">
-        alert("Ocurrio un error en el envío del correo.");
-        window.location.href="http://www.neigygroup.com";
-        </script>';
-   }
-// segundo correo
-
-// Email donde se enviaran los datos cargados en el formulario de contacto
-   $emailDestino = "astiazu@gmail.com"; #info@c2480282.ferozo.com"; #"osolo1966@gmail.com";
-
-   $mail = new PHPMailer();
-   $mail->IsSMTP();
-   $mail->SMTPAuth = true;
-   $mail->Port = 465; 
-   $mail->SMTPSecure = 'ssl';
-   $mail->IsHTML(true); 
-   $mail->CharSet = "utf-8";
+// Enviar el correo
+echo "<pre>";
+print($mail->Send());
+echo "</pre>";
 
 
-   // VALORES A MODIFICAR //
-   $mail->Host = $smtpHost; 
-   $mail->Username = $smtpUsuario; 
-   $mail->Password = $smtpClave;
+if (!$mail->Send()) {
+    echo "Mailer Error: " . $mail->ErrorInfo; // Imprime el error específico de PHPMailer
+} else {
+    echo "<script type='text/javascript'>
+        alert('El correo fue enviado correctamente a: $emailDestino');
+        window.location.href='http://www.neigygroup.ar';
+        </script>";
+}
 
-   $mail->From = $email; // Email desde donde envío el correo.
-   //$mail->FromName = $nombre;//
-   $mail->AddAddress($emailDestino); // Esta es la dirección a donde enviamos los datos del formulario
+echo "<pre>";
+print($estadoEnvio);
+echo "</pre>";
+die();
 
-   $mail->Subject = "Solicitud de Suscripción"; // Este es el titulo del email.
-   $mensajeHtml = nl2br($mensaje);   
-   $mail->Body = "{$mensajeHtml} <br /><br />Solicitud de suscripcion a las novedades de su pagina y Empresa \\n\\n Enviado desde la Página web.<br />"; // Texto del email en formato 
-   $mail->AltBody = "{$mensaje} \n\n Formulario de ejemplo By DonWeb"; // Texto sin formato HTML
-   // FIN - VALORES A MODIFICAR //
+$estadoEnvio = $mail->Send();
 
-   $estadoEnvio = $mail->Send(); 
-   if($estadoEnvio){
-      echo'<script type="text/javascript">
-        //alert("El correo fue enviado correctamente a .", $emailDestino);
-        msg="El correo fue enviado correctamente a :".$emailDestino; 
-        alert(("' . $msg . '"));
-        window.location.href="http://www.neigygroup.com";
-        </script>';
-        
-   } else {
-      echo'<script type="text/javascript">
-        alert("Ocurrio un error en el envío del correo a .", $emailDestino));
-        window.location.href="http://www.neigygroup.comW;
-        </script>';
-   }
+if ($estadoEnvio) {
+    echo "<script type='text/javascript'>
+        alert('El correo fue enviado correctamente a: $emailDestino');
+        window.location.href='http://www.neigygroup.ar';
+        </script>";
+} else {
+    echo "<script type='text/javascript'>
+        alert('(1) Ocurrió un error en el envío del correo. Envíe el mensaje desde su correo a $emailDestino');
+        window.location.href='http://www.neigygroup.ar';
+        </script>";
+}
+
+// Enviar segundo correo a otro destinatario
+$emailDestino2 = "astiazu@gmail.com";
+$mail->ClearAllRecipients();
+$mail->AddAddress($emailDestino2);
+$estadoEnvio2 = $mail->Send();
+
+if ($estadoEnvio2) {
+    echo "<script type='text/javascript'>
+        alert('El correo fue enviado correctamente a: $emailDestino2');
+        window.location.href='http://www.neigygroup.ar';
+        </script>";
+} else {
+    echo "<script type='text/javascript'>
+        alert('Ocurrió un error en el envío del correo a: $emailDestino2');
+        window.location.href='http://www.neigygroup.ar';
+        </script>";
+}
 
 ?>
